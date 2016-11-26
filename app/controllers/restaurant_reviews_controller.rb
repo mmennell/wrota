@@ -1,6 +1,6 @@
 class RestaurantReviewsController < ApplicationController
   def index
-    @restaurant_reviews = RestaurantReview.all
+    @restaurant_reviews = RestaurantReview.page(params[:page]).per(10)
 
     render("restaurant_reviews/index.html.erb")
   end

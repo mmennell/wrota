@@ -1,6 +1,6 @@
 class ShiftsController < ApplicationController
   def index
-    @shifts = Shift.all
+    @shifts = Shift.page(params[:page]).per(10)
 
     render("shifts/index.html.erb")
   end

@@ -1,6 +1,9 @@
 class Staff < ApplicationRecord
   # Direct associations
 
+  has_many   :shifts,
+             :dependent => :destroy
+
   has_many   :staff_reviews,
              :dependent => :destroy
 

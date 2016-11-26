@@ -1,4 +1,6 @@
 class Restaurant < ApplicationRecord
+  mount_uploader :hero_image, HeroImageUploader
+
   # Direct associations
 
   belongs_to :user

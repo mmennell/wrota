@@ -1,5 +1,7 @@
 ActiveAdmin.register StaffReview do
 
+ permit_params :staff_id, :shift_id, :overall_rating, :punctuality, :appearance, :professionalism, :work_ethic, :hire_again, :private_comments
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

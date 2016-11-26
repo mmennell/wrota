@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h3>Restaurant Review #<%= @restaurant_review.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Overall rating</dt>
+      <dd><%= @restaurant_review.overall_rating %></dd>
+
+      <dt>Tips received</dt>
+      <dd><%= @restaurant_review.tips_received %></dd>
+
+      <dt>Feedback</dt>
+      <dd><%= @restaurant_review.feedback %></dd>
+
+      <dt>Work again</dt>
+      <dd><%= @restaurant_review.work_again %></dd>
+
+      <dt>Restaurant</dt>
+      <dd><%= @restaurant_review.restaurant_id %></dd>
+
+      <dt>Shift</dt>
+      <dd><%= @restaurant_review.shift_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/restaurant_reviews" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/restaurant_reviews/<%= @restaurant_review.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_restaurant_review/<%= @restaurant_review.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

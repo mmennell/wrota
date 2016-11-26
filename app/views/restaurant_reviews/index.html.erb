@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>
+    Restaurant reviews
+    <a href="/restaurant_reviews/new" class="btn btn-lg btn-success">New Restaurant review</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Overall rating</th>
+        <th>Tips received</th>
+        <th>Feedback</th>
+        <th>Work again</th>
+        <th>Restaurant</th>
+        <th>Shift</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @restaurant_reviews.each do |restaurant_review| %>
+      <tr>
+        <td><%= restaurant_review.overall_rating %></td>
+        <td><%= restaurant_review.tips_received %></td>
+        <td><%= restaurant_review.feedback %></td>
+        <td><%= restaurant_review.work_again %></td>
+        <td><%= restaurant_review.restaurant_id %></td>
+        <td><%= restaurant_review.shift_id %></td>
+        <td>
+          <a href="/restaurant_reviews/<%= restaurant_review.id %>" class="btn btn-primary">Show</a>
+          <a href="/restaurant_reviews/<%= restaurant_review.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_restaurant_review/<%= restaurant_review.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

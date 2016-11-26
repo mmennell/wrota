@@ -1,0 +1,81 @@
+<!-- Validation failure messages -->
+<% if @restaurant_review.errors.any? %>
+  <% @restaurant_review.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Restaurant Review #<%= @restaurant_review.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_restaurant_review/<%= @restaurant_review.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for overall_rating -->
+      <div class="form-group">
+        <label for="overall_rating" class="control-label">
+          Overall rating
+        </label>
+
+        <input type="text" id="overall_rating" name="overall_rating" placeholder="Overall rating" class="form-control" value="<%= @restaurant_review.overall_rating %>">
+      </div>
+
+      <!-- Label and input for tips_received -->
+      <div class="form-group">
+        <label for="tips_received" class="control-label">
+          Tips received
+        </label>
+
+        <input type="text" id="tips_received" name="tips_received" placeholder="Tips received" class="form-control" value="<%= @restaurant_review.tips_received %>">
+      </div>
+
+      <!-- Label and input for feedback -->
+      <div class="form-group">
+        <label for="feedback" class="control-label">
+          Feedback
+        </label>
+
+        <input type="text" id="feedback" name="feedback" placeholder="Feedback" class="form-control" value="<%= @restaurant_review.feedback %>">
+      </div>
+
+      <!-- Label and input for work_again -->
+      <div class="checkbox">
+        <label for="work_again">
+          <input type="checkbox" id="work_again" name="work_again" value="1" <%= "checked" if @restaurant_review.work_again %>>
+          Work again
+        </label>
+      </div>
+
+      <!-- Label and input for restaurant_id -->
+      <div class="form-group">
+        <label for="restaurant_id" class="control-label">
+          Restaurant
+        </label>
+
+        <input type="text" id="restaurant_id" name="restaurant_id" placeholder="Restaurant" class="form-control" value="<%= @restaurant_review.restaurant_id %>">
+      </div>
+
+      <!-- Label and input for shift_id -->
+      <div class="form-group">
+        <label for="shift_id" class="control-label">
+          Shift
+        </label>
+
+        <input type="text" id="shift_id" name="shift_id" placeholder="Shift" class="form-control" value="<%= @restaurant_review.shift_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Restaurant Review
+      </button>
+      or
+      <a href="/restaurant_reviews/<%= @restaurant_review.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

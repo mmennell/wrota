@@ -1,5 +1,7 @@
 ActiveAdmin.register Shift do
 
+ permit_params :start_time, :end_time, :role_id, :bonus, :bonus_terms, :staff_id, :allocated
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

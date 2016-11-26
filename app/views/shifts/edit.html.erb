@@ -1,0 +1,90 @@
+<!-- Validation failure messages -->
+<% if @shift.errors.any? %>
+  <% @shift.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Shift #<%= @shift.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_shift/<%= @shift.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for start_time -->
+      <div class="form-group">
+        <label for="start_time" class="control-label">
+          Start time
+        </label>
+
+        <input type="text" id="start_time" name="start_time" placeholder="Start time" class="form-control" value="<%= @shift.start_time %>">
+      </div>
+
+      <!-- Label and input for end_time -->
+      <div class="form-group">
+        <label for="end_time" class="control-label">
+          End time
+        </label>
+
+        <input type="text" id="end_time" name="end_time" placeholder="End time" class="form-control" value="<%= @shift.end_time %>">
+      </div>
+
+      <!-- Label and input for role_id -->
+      <div class="form-group">
+        <label for="role_id" class="control-label">
+          Role
+        </label>
+
+        <input type="text" id="role_id" name="role_id" placeholder="Role" class="form-control" value="<%= @shift.role_id %>">
+      </div>
+
+      <!-- Label and input for bonus -->
+      <div class="form-group">
+        <label for="bonus" class="control-label">
+          Bonus
+        </label>
+
+        <input type="text" id="bonus" name="bonus" placeholder="Bonus" class="form-control" value="<%= @shift.bonus %>">
+      </div>
+
+      <!-- Label and input for bonus_terms -->
+      <div class="form-group">
+        <label for="bonus_terms" class="control-label">
+          Bonus terms
+        </label>
+
+        <input type="text" id="bonus_terms" name="bonus_terms" placeholder="Bonus terms" class="form-control" value="<%= @shift.bonus_terms %>">
+      </div>
+
+      <!-- Label and input for staff_id -->
+      <div class="form-group">
+        <label for="staff_id" class="control-label">
+          Staff
+        </label>
+
+        <input type="text" id="staff_id" name="staff_id" placeholder="Staff" class="form-control" value="<%= @shift.staff_id %>">
+      </div>
+
+      <!-- Label and input for allocated -->
+      <div class="checkbox">
+        <label for="allocated">
+          <input type="checkbox" id="allocated" name="allocated" value="1" <%= "checked" if @shift.allocated %>>
+          Allocated
+        </label>
+      </div>
+
+      <button class="btn btn-warning">
+        Update Shift
+      </button>
+      or
+      <a href="/shifts/<%= @shift.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

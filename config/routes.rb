@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Shift resource:
+  # CREATE
+  get "/shifts/new", :controller => "shifts", :action => "new"
+  post "/create_shift", :controller => "shifts", :action => "create"
+
+  # READ
+  get "/shifts", :controller => "shifts", :action => "index"
+  get "/shifts/:id", :controller => "shifts", :action => "show"
+
+  # UPDATE
+  get "/shifts/:id/edit", :controller => "shifts", :action => "edit"
+  post "/update_shift/:id", :controller => "shifts", :action => "update"
+
+  # DELETE
+  get "/delete_shift/:id", :controller => "shifts", :action => "destroy"
+  #------------------------------
+
   # Routes for the Restaurant_review resource:
   # CREATE
   get "/restaurant_reviews/new", :controller => "restaurant_reviews", :action => "new"

@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h3>Shift #<%= @shift.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Start time</dt>
+      <dd><%= @shift.start_time %></dd>
+
+      <dt>End time</dt>
+      <dd><%= @shift.end_time %></dd>
+
+      <dt>Role</dt>
+      <dd><%= @shift.role_id %></dd>
+
+      <dt>Bonus</dt>
+      <dd><%= @shift.bonus %></dd>
+
+      <dt>Bonus terms</dt>
+      <dd><%= @shift.bonus_terms %></dd>
+
+      <dt>Staff</dt>
+      <dd><%= @shift.staff_id %></dd>
+
+      <dt>Allocated</dt>
+      <dd><%= @shift.allocated %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/shifts" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/shifts/<%= @shift.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_shift/<%= @shift.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

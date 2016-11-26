@@ -1,6 +1,9 @@
 class Staff < ApplicationRecord
   # Direct associations
 
+  has_many   :staff_reviews,
+             :dependent => :destroy
+
   belongs_to :role
 
   belongs_to :home_restaurant,

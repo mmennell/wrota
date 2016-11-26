@@ -68,7 +68,7 @@
           Shift
         </label>
 
-        <input type="text" id="shift_id" name="shift_id" placeholder="Shift" class="form-control" value="<%= @restaurant_review.shift_id %>">
+        <%= select_tag(:shift_id, options_from_collection_for_select(Shift.all, :id, :start_time, @restaurant_review.shift_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">

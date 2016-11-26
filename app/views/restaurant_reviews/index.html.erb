@@ -24,8 +24,20 @@
         <td><%= restaurant_review.tips_received %></td>
         <td><%= restaurant_review.feedback %></td>
         <td><%= restaurant_review.work_again %></td>
-        <td><%= restaurant_review.restaurant.restaurant_name %></td>
-        <td><%= restaurant_review.shift.start_time %></td>
+        <td>
+          <% if restaurant_review.restaurant.present? %>
+            <a href="/restaurants/<%= restaurant_review.restaurant.id %>">
+              <%= restaurant_review.restaurant.restaurant_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if restaurant_review.shift.present? %>
+            <a href="/shifts/<%= restaurant_review.shift.id %>">
+              <%= restaurant_review.shift.start_time %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/restaurant_reviews/<%= restaurant_review.id %>" class="btn btn-primary">Show</a>
           <a href="/restaurant_reviews/<%= restaurant_review.id %>/edit" class="btn btn-warning">Edit</a>

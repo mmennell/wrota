@@ -18,10 +18,22 @@
       <dd><%= @restaurant_review.work_again %></dd>
 
       <dt>Restaurant</dt>
-      <dd><%= @restaurant_review.restaurant_id %></dd>
+      <dd>
+        <% if @restaurant_review.restaurant.present? %>
+          <a href="/restaurants/<%= @restaurant_review.restaurant_id %>">
+            <%= @restaurant_review.restaurant.restaurant_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Shift</dt>
-      <dd><%= @restaurant_review.shift_id %></dd>
+      <dd>
+        <% if @restaurant_review.shift.present? %>
+          <a href="/shifts/<%= @restaurant_review.shift_id %>">
+            <%= @restaurant_review.shift.start_time %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

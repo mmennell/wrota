@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Staff</dt>
-      <dd><%= @staff_review.staff_id %></dd>
+      <dd>
+        <% if @staff_review.staff.present? %>
+          <a href="/staffs/<%= @staff_review.staff_id %>">
+            <%= @staff_review.staff.firstname %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Shift</dt>
-      <dd><%= @staff_review.shift_id %></dd>
+      <dd>
+        <% if @staff_review.shift.present? %>
+          <a href="/shifts/<%= @staff_review.shift_id %>">
+            <%= @staff_review.shift.start_time %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Overall rating</dt>
       <dd><%= @staff_review.overall_rating %></dd>

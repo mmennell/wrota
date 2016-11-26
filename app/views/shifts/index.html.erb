@@ -23,10 +23,22 @@
       <tr>
         <td><%= shift.start_time %></td>
         <td><%= shift.end_time %></td>
-        <td><%= shift.role.role_name %></td>
+        <td>
+          <% if shift.role.present? %>
+            <a href="/roles/<%= shift.role.id %>">
+              <%= shift.role.role_name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= shift.bonus %></td>
         <td><%= shift.bonus_terms %></td>
-        <td><%= shift.staff.firstname %></td>
+        <td>
+          <% if shift.staff.present? %>
+            <a href="/staffs/<%= shift.staff.id %>">
+              <%= shift.staff.firstname %>
+            </a>
+          <% end %>
+        </td>
         <td><%= shift.allocated %></td>
         <td>
           <a href="/shifts/<%= shift.id %>" class="btn btn-primary">Show</a>

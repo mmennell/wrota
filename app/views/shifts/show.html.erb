@@ -12,7 +12,13 @@
       <dd><%= @shift.end_time %></dd>
 
       <dt>Role</dt>
-      <dd><%= @shift.role_id %></dd>
+      <dd>
+        <% if @shift.role.present? %>
+          <a href="/roles/<%= @shift.role_id %>">
+            <%= @shift.role.role_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Bonus</dt>
       <dd><%= @shift.bonus %></dd>
@@ -21,7 +27,13 @@
       <dd><%= @shift.bonus_terms %></dd>
 
       <dt>Staff</dt>
-      <dd><%= @shift.staff_id %></dd>
+      <dd>
+        <% if @shift.staff.present? %>
+          <a href="/staffs/<%= @shift.staff_id %>">
+            <%= @shift.staff.firstname %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Allocated</dt>
       <dd><%= @shift.allocated %></dd>

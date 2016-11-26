@@ -23,8 +23,20 @@
 
       <% @staff_reviews.each do |staff_review| %>
       <tr>
-        <td><%= staff_review.staff.firstname %></td>
-        <td><%= staff_review.shift.start_time %></td>
+        <td>
+          <% if staff_review.staff.present? %>
+            <a href="/staffs/<%= staff_review.staff.id %>">
+              <%= staff_review.staff.firstname %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if staff_review.shift.present? %>
+            <a href="/shifts/<%= staff_review.shift.id %>">
+              <%= staff_review.shift.start_time %>
+            </a>
+          <% end %>
+        </td>
         <td><%= staff_review.overall_rating %></td>
         <td><%= staff_review.punctuality %></td>
         <td><%= staff_review.appearance %></td>

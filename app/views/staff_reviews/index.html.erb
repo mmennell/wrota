@@ -23,7 +23,7 @@
 
       <% @staff_reviews.each do |staff_review| %>
       <tr>
-        <td><%= staff_review.staff_id %></td>
+        <td><%= staff_review.staff.firstname %></td>
         <td><%= staff_review.shift_id %></td>
         <td><%= staff_review.overall_rating %></td>
         <td><%= staff_review.punctuality %></td>

@@ -1,0 +1,108 @@
+<!-- Validation failure messages -->
+<% if @staff_review.errors.any? %>
+  <% @staff_review.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Staff Review #<%= @staff_review.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_staff_review/<%= @staff_review.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for staff_id -->
+      <div class="form-group">
+        <label for="staff_id" class="control-label">
+          Staff
+        </label>
+
+        <input type="text" id="staff_id" name="staff_id" placeholder="Staff" class="form-control" value="<%= @staff_review.staff_id %>">
+      </div>
+
+      <!-- Label and input for shift_id -->
+      <div class="form-group">
+        <label for="shift_id" class="control-label">
+          Shift
+        </label>
+
+        <input type="text" id="shift_id" name="shift_id" placeholder="Shift" class="form-control" value="<%= @staff_review.shift_id %>">
+      </div>
+
+      <!-- Label and input for overall_rating -->
+      <div class="form-group">
+        <label for="overall_rating" class="control-label">
+          Overall rating
+        </label>
+
+        <input type="text" id="overall_rating" name="overall_rating" placeholder="Overall rating" class="form-control" value="<%= @staff_review.overall_rating %>">
+      </div>
+
+      <!-- Label and input for punctuality -->
+      <div class="form-group">
+        <label for="punctuality" class="control-label">
+          Punctuality
+        </label>
+
+        <input type="text" id="punctuality" name="punctuality" placeholder="Punctuality" class="form-control" value="<%= @staff_review.punctuality %>">
+      </div>
+
+      <!-- Label and input for appearance -->
+      <div class="form-group">
+        <label for="appearance" class="control-label">
+          Appearance
+        </label>
+
+        <input type="text" id="appearance" name="appearance" placeholder="Appearance" class="form-control" value="<%= @staff_review.appearance %>">
+      </div>
+
+      <!-- Label and input for professionalism -->
+      <div class="form-group">
+        <label for="professionalism" class="control-label">
+          Professionalism
+        </label>
+
+        <input type="text" id="professionalism" name="professionalism" placeholder="Professionalism" class="form-control" value="<%= @staff_review.professionalism %>">
+      </div>
+
+      <!-- Label and input for work_ethic -->
+      <div class="form-group">
+        <label for="work_ethic" class="control-label">
+          Work ethic
+        </label>
+
+        <input type="text" id="work_ethic" name="work_ethic" placeholder="Work ethic" class="form-control" value="<%= @staff_review.work_ethic %>">
+      </div>
+
+      <!-- Label and input for hire_again -->
+      <div class="checkbox">
+        <label for="hire_again">
+          <input type="checkbox" id="hire_again" name="hire_again" value="1" <%= "checked" if @staff_review.hire_again %>>
+          Hire again
+        </label>
+      </div>
+
+      <!-- Label and input for private_comments -->
+      <div class="form-group">
+        <label for="private_comments" class="control-label">
+          Private comments
+        </label>
+
+        <input type="text" id="private_comments" name="private_comments" placeholder="Private comments" class="form-control" value="<%= @staff_review.private_comments %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Staff Review
+      </button>
+      or
+      <a href="/staff_reviews/<%= @staff_review.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

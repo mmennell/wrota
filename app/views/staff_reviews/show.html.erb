@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h3>Staff Review #<%= @staff_review.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Staff</dt>
+      <dd><%= @staff_review.staff_id %></dd>
+
+      <dt>Shift</dt>
+      <dd><%= @staff_review.shift_id %></dd>
+
+      <dt>Overall rating</dt>
+      <dd><%= @staff_review.overall_rating %></dd>
+
+      <dt>Punctuality</dt>
+      <dd><%= @staff_review.punctuality %></dd>
+
+      <dt>Appearance</dt>
+      <dd><%= @staff_review.appearance %></dd>
+
+      <dt>Professionalism</dt>
+      <dd><%= @staff_review.professionalism %></dd>
+
+      <dt>Work ethic</dt>
+      <dd><%= @staff_review.work_ethic %></dd>
+
+      <dt>Hire again</dt>
+      <dd><%= @staff_review.hire_again %></dd>
+
+      <dt>Private comments</dt>
+      <dd><%= @staff_review.private_comments %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/staff_reviews" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/staff_reviews/<%= @staff_review.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_staff_review/<%= @staff_review.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

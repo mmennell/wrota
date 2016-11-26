@@ -47,3 +47,96 @@
     </div>
   </div>
 </div>
+
+<!-- A Restaurant has many staffs -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Staffs
+      </li>
+
+      <% @restaurant.staffs.each do |staff| %>
+        <li class="list-group-item">
+          <a href="/staffs/<%= staff.id %>">
+            <%= staff.firstname %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/staffs/<%= staff.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/staffs/<%= staff.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_staff/<%= staff.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Restaurant has many restaurant_reviews -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Restaurant_reviews
+      </li>
+
+      <% @restaurant.restaurant_reviews.each do |restaurant_review| %>
+        <li class="list-group-item">
+          <a href="/restaurant_reviews/<%= restaurant_review.id %>">
+            <%= restaurant_review.overall_rating %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/restaurant_reviews/<%= restaurant_review.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/restaurant_reviews/<%= restaurant_review.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_restaurant_review/<%= restaurant_review.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Restaurant has many roles -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Roles
+      </li>
+
+      <% @restaurant.roles.each do |role| %>
+        <li class="list-group-item">
+          <a href="/roles/<%= role.id %>">
+            <%= role.role_name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/roles/<%= role.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/roles/<%= role.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_role/<%= role.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

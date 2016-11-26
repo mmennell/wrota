@@ -29,3 +29,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Role has many staffs -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Staffs
+      </li>
+
+      <% @role.staffs.each do |staff| %>
+        <li class="list-group-item">
+          <a href="/staffs/<%= staff.id %>">
+            <%= staff.firstname %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/staffs/<%= staff.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/staffs/<%= staff.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_staff/<%= staff.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Role has many shifts -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Shifts
+      </li>
+
+      <% @role.shifts.each do |shift| %>
+        <li class="list-group-item">
+          <a href="/shifts/<%= shift.id %>">
+            <%= shift.start_time %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/shifts/<%= shift.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/shifts/<%= shift.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_shift/<%= shift.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

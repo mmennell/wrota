@@ -1,6 +1,7 @@
 class StaffReviewsController < ApplicationController
   def index
-    @staff_reviews = StaffReview.page(params[:page]).per(10)
+    @q = StaffReview.ransack(params[:q])
+    @staff_reviews = @q.result(:distinct => true).includes(:staff, :shift).page(params[:page]).per(10)
 
     render("staff_reviews/index.html.erb")
   end

@@ -1,6 +1,7 @@
 class ShiftsController < ApplicationController
   def index
-    @shifts = Shift.page(params[:page]).per(10)
+    @q = Shift.ransack(params[:q])
+    @shifts = @q.result(:distinct => true).includes(:role, :staff, :staff_review, :restaurant_review).page(params[:page]).per(10)
 
     render("shifts/index.html.erb")
   end

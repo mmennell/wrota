@@ -6,6 +6,8 @@ class StaffsController < ApplicationController
   end
 
   def show
+    @shift = Shift.new
+    @staff_review = StaffReview.new
     @staff = Staff.find(params[:id])
 
     render("staffs/show.html.erb")

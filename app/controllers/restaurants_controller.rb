@@ -16,6 +16,9 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @role = Role.new
+    @restaurant_review = RestaurantReview.new
+    @staff = Staff.new
     @restaurant = Restaurant.find(params[:id])
 
     render("restaurants/show.html.erb")

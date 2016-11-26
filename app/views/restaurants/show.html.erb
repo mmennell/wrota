@@ -77,6 +77,80 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_staff" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for firstname -->
+      <div class="form-group">
+        <label for="firstname" class="control-label">
+          Firstname
+        </label>
+
+        <input type="text" id="firstname" name="firstname" placeholder="Firstname" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for lastname -->
+      <div class="form-group">
+        <label for="lastname" class="control-label">
+          Lastname
+        </label>
+
+        <input type="text" id="lastname" name="lastname" placeholder="Lastname" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for contact_telephone -->
+      <div class="form-group">
+        <label for="contact_telephone" class="control-label">
+          Contact telephone
+        </label>
+
+        <input type="text" id="contact_telephone" name="contact_telephone" placeholder="Contact telephone" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for home_restaurant_id -->
+      <div class="form-group">
+        <label for="home_restaurant_id" class="control-label">
+          Home restaurant
+        </label>
+
+        <%= select_tag(:home_restaurant_id, options_from_collection_for_select(Restaurant.all, :id, :restaurant_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for photo -->
+      <div class="form-group">
+        <label for="photo" class="control-label">
+          Photo
+        </label>
+
+        <input type="file" id="photo" name="photo" class="form-control">
+      </div>
+
+      <!-- Label and input for role_id -->
+      <div class="form-group">
+        <label for="role_id" class="control-label">
+          Role
+        </label>
+
+        <%= select_tag(:role_id, options_from_collection_for_select(Role.all, :id, :role_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :email), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Staff
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -108,6 +182,64 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_restaurant_review" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for overall_rating -->
+      <div class="form-group">
+        <label for="overall_rating" class="control-label">
+          Overall rating
+        </label>
+
+        <input type="text" id="overall_rating" name="overall_rating" placeholder="Overall rating" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for tips_received -->
+      <div class="form-group">
+        <label for="tips_received" class="control-label">
+          Tips received
+        </label>
+
+        <input type="text" id="tips_received" name="tips_received" placeholder="Tips received" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for feedback -->
+      <div class="form-group">
+        <label for="feedback" class="control-label">
+          Feedback
+        </label>
+
+        <input type="text" id="feedback" name="feedback" placeholder="Feedback" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for work_again -->
+      <div class="checkbox">
+        <label for="work_again">
+          <input type="checkbox" id="work_again" name="work_again" value="1" <%= "checked" if @restaurant_review.work_again %>>
+          Work again
+        </label>
+      </div>
+
+      <!-- Label and input for restaurant_id -->
+      <input type="hidden" name="restaurant_id" value="<%= @restaurant.id %>">
+
+      <!-- Label and input for shift_id -->
+      <div class="form-group">
+        <label for="shift_id" class="control-label">
+          Shift
+        </label>
+
+        <%= select_tag(:shift_id, options_from_collection_for_select(Shift.all, :id, :start_time), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Restaurant Review
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -139,6 +271,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_role" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for role_name -->
+      <div class="form-group">
+        <label for="role_name" class="control-label">
+          Role name
+        </label>
+
+        <input type="text" id="role_name" name="role_name" placeholder="Role name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for restaurant_id -->
+      <input type="hidden" name="restaurant_id" value="<%= @restaurant.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Role
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
